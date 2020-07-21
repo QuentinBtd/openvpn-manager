@@ -287,8 +287,8 @@ verb 3" > /etc/openvpn/servers/$1/client-common.txt
 
 function installopenvpn () {
 	if [[ "$OS" = 'debian' ]]; then
-		apt-get update
-		apt-get install openvpn iptables openssl ca-certificates -y
+		apt update
+		apt install openvpn iptables openssl ca-certificates -y
 	else
 		# Else, the distro is CentOS
 		yum install epel-release -y
@@ -471,7 +471,7 @@ if [[ $INSTALLED ]]; then
 					delete-iptables-rules $DIR
 				done
 				if [[ "$OS" = 'debian' ]]; then
-					apt-get remove --purge -y openvpn
+					apt remove --purge -y openvpn
 				else
 					yum remove openvpn -y
 				fi
